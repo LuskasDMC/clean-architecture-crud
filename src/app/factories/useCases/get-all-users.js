@@ -1,13 +1,15 @@
-const { CreateUserUseCase } = require("../../../domain/useCases/create-user");
+const {
+  GetAllUsersUseCase,
+} = require("../../../domain/useCases/get-all-users");
 const {
   UserRepository,
 } = require("../../../infra/database/repositories/UserRepository");
 
-const createUserFactory = () => {
+const getAllUserFactory = () => {
   const userRepository = new UserRepository();
-  const createUserUseCase = new CreateUserUseCase(userRepository);
+  const getAllUserUseCase = new GetAllUsersUseCase(userRepository);
 
-  return createUserUseCase;
+  return getAllUserUseCase;
 };
 
-exports.createUserFactory = createUserFactory;
+exports.getAllUserFactory = getAllUserFactory;

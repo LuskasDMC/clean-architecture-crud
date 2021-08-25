@@ -1,11 +1,18 @@
 const { Router } = require("express");
-const { NotFoundException } = require("../../shared/errors/NotFoundException");
+const {
+  createUserControllerFactory,
+} = require("../factories/controllers/create-user-controller");
 const {
   getAllUserControllerFactory,
 } = require("../factories/controllers/get-all-users-controllers");
 
 const router = Router();
 
-router.get("/", (req, res) => getAllUserControllerFactory().handle(req, res));
+const getAllUserController = getAllUserControllerFactory();
+const createUserController = createUserControllerFactory();
+
+router.get("/", (req, res) => getAllUserController.handle(req, res));
+
+router.post("/", (req, res) => getAllUserController.handle(req, res));
 
 exports.UserRouter = router;

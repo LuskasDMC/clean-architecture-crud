@@ -1,7 +1,7 @@
 const { CreateUserController } = require("../../controllers/create-user");
-const { createUserFactory } = require("../useCases/get-all-users");
+const { createUserFactory } = require("../useCases/create-user");
 
-const createUserControllerFactory = () => {
+const createUserControllerFactory = function () {
   return new CreateUserController(createUserFactory());
 };
 

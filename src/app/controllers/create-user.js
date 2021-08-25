@@ -8,8 +8,7 @@ class CreateUserController {
   async handle(request, response) {
     const user = new UserEntity(request.body);
 
-    await this.createUserUseCase(user);
-
+    await this.createUserUseCase.handle(user);
     response.status(201).json(user);
   }
 }
